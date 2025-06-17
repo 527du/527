@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给最爱的佳琪 - 的道歉信</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', 'SimHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ffcce6, #e6f7ff);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #ff5c8d, #ff2e63);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 2rem;
+            animation: float 8s infinite ease-in-out;
+            z-index: 1;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0) rotate(0); }
+            25% { transform: translateY(-20px) translateX(10px) rotate(10deg); }
+            50% { transform: translateY(10px) translateX(-15px) rotate(-5deg); }
+            75% { transform: translateY(-15px) translateX(20px) rotate(8deg); }
+        }
+        
+        .content {
+            padding: 30px;
+            min-height: 500px;
+            position: relative;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .tab {
+            background: #fff;
+            border: 2px solid #ff5c8d;
+            color: #ff2e63;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(255, 92, 141, 0.2);
+        }
+        
+        .tab:hover {
+            background: #fff0f5;
+            transform: translateY(-3px);
+        }
+        
+        .tab.active {
+            background: linear-gradient(to right, #ff5c8d, #ff2e63);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 46, 99, 0.4);
+        }
+        
+        .screen {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            min-height: 400px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        
+        /* Home Screen */
+        .home-screen {
+            background: linear-gradient(135deg, #fff0f5, #f0f8ff);
+            text-align: center;
+        }
+        
+        .hearts-container {
+            position: relative;
+            height: 200px;
+            margin: 30px 0;
+        }
+        
+        .big-heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 8rem;
+            color: #ff5c8d;
+            animation: heartbeat 1.2s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            14% { transform: translate(-50%, -50%) scale(1.1); }
+            28% { transform: translate(-50%, -50%) scale(1); }
+            42% { transform: translate(-50%, -50%) scale(1.1); }
+            70% { transform: translate(-50%, -50%) scale(1); }
+        }
+        
+        .small-heart {
+            position: absolute;
+            font-size: 1.8rem;
+            color: rgba(255, 92, 141, 0.7);
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        .action-btn {
+            background: linear-gradient(to right, #ff5c8d, #ff2e63);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 5px 15px rgba(255, 46, 99, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 46, 99, 0.6);
+        }
+        
+        .footer {
+            margin-top: 30px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Apology Screen */
+        .apology-screen {
+            background: #fffafb;
+            border-left: 8px solid #ff5c8d;
+        }
+        
+        .apology-title {
+            text-align: center;
+            color: #ff2e63;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .apology-title:after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: #ffb6c1;
+            margin: 10px auto;
+        }
+        
+        .letter-content {
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.1rem;
+        }
+        
+        .letter-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .signature {
+            text-align: right;
+            margin-top: 30px;
+            font-weight: bold;
+            color: #ff2e63;
+            font-style: italic;
+        }
+        
+        /* Memories Screen - 照片展示区域 */
+        .memories-screen {
+            background: #f9f5ff;
+        }
+        
+        .memories-title {
+            text-align: center;
+            color: #8a2be2;
+            margin-bottom: 30px;
+        }
+        
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .photo-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .photo-item:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+        
+        .photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .photo-item:hover .photo-img {
+            transform: scale(1.1);
+        }
+        
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-item:hover .photo-caption {
+            transform: translateY(0);
+        }
+        
+        .memory-text {
+            text-align: center;
+            margin-top: 30px;
+            font-style: italic;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        /* 照片查看器模态框 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .modal-img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+        
+        .modal-caption {
+            color: white;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            color: #ff5c8d;
+        }
+        
+        /* Promises Screen */
+        .promises-screen {
+            background: #f0fff5;
+        }
+        
+        .promises-title {
+            text-align: center;
+            color: #2ecc71;
+            margin-bottom: 30px;
+        }
+        
+        .promise-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .promise-item {
+            background: white;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #2ecc71;
+            transition: transform 0.3s ease;
+        }
+        
+        .promise-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .promise-number {
+            background: #ff5c8d;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+        
+        .promise-footer {
+            background: rgba(255, 182, 193, 0.3);
+            padding: 15px;
+            text-align: center;
+            margin-top: 30px;
+            border-radius: 10px;
+            font-weight: bold;
+            color: #ff2e63;
+            font-size: 1.2rem;
+        }
+        
+        .floating-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            color: #ff5c8d;
+            font-size: 1.5rem;
+            animation: float 8s infinite ease-in-out;
+            opacity: 0.5;
+        }
+        
+        .instructions {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid #ff5c8d;
+        }
+        
+        .instructions h3 {
+            color: #ff2e63;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .big-heart { font-size: 6rem; }
+            .photo-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 480px) {
+            .photo-grid { grid-template-columns: 1fr; }
+            .tabs { flex-direction: column; align-items: center; }
+            .tab { width: 90%; margin-bottom: 10px; }
+            .big-heart { font-size: 4rem; }
+            .letter-content { font-size: 1rem; }
+            .photo-item { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>给最爱的宝宝</h1>
+            <p>用代码表达我的心意</p>
+            <div class="heart" style="top: 20px; left: 20%;">❤</div>
+            <div class="heart" style="top: 60px; left: 70%;">❤</div>
+            <div class="heart" style="top: 40px; left: 45%;">❤</div>
+            <div class="heart" style="top: 100px; left: 30%;">❤</div>
+            <div class="heart" style="top: 80px; left: 80%;">❤</div>
+        </div>
+        
+        <div class="content">
+            <div class="tabs">
+                <div class="tab active" data-tab="home">首页</div>
+                <div class="tab" data-tab="apology">道歉信</div>
+                <div class="tab" data-tab="memories">甜蜜回忆</div>
+                <div class="tab" data-tab="promises">爱的承诺</div>
+            </div>
+            
+            <div class="screen home-screen" id="home-screen">
+                <h2 style="color: #ff5c8d; text-align: center; margin-bottom: 20px;">欢迎来到我的心意世界</h2>
+                
+                <div class="hearts-container">
+                    <div class="big-heart">❤</div>
+                    <div class="small-heart" style="top: 30px; left: 20%;">❤</div>
+                    <div class="small-heart" style="top: 100px; left: 80%;">❤</div>
+                    <div class="small-heart" style="top: 170px; left: 35%;">❤</div>
+                    <div class="small-heart" style="top: 50px; left: 65%;">❤</div>
+                </div>
+                
+                <p style="max-width: 600px; margin: 0 auto 25px; line-height: 1.7; color: #666;">
+                    佳琪，我真的很需要你，没有你在我身边生活都变的没有意义了。希望你能感受到我内心的真诚。因为我真的爱你
+                    点击下方按钮查看我想对你说的话...
+                </p>
+                
+                <button class="action-btn">查看我的心意</button>
+                
+                <div class="footer">
+                    <p>永远爱你喜欢你的哥哥</p>
+                </div>
+                
+                <div class="floating-hearts" id="home-hearts"></div>
+            </div>
+            
+            <div class="screen apology-screen" id="apology-screen" style="display: none;">
+                <h2 class="apology-title">致我最爱的人</h2>
+                
+                <div class="letter-content">
+                    <p>亲爱的公主大人：</p>
+                    <p>写下这些话时，我心中充满歉意。我深知最近的争执让你伤心了，这完全是我的过错。</p>
+                    <p>你是我生命中最重要的人，你的开心是我每天的动力，你的快乐是我最大的心愿。</p>
+                    <p>我会更加体谅你的感受，更加珍惜你，用行动证明我对你的爱，无条件的支持你站在你身边。</p>
+                    <p>请原谅我的任性和不成熟，给我一个机会弥补我的过错，我想陪着你照顾，每天看着你开心的笑。</p>
+                    <p>小公主消消气我们和好吧，我真的不想失去你。我会永远珍惜你、爱护你，一直陪伴你</p>
+                    
+                    <div class="signature">
+                        <p>爱你的哥哥</p>
+                        <p id="current-date"></p>
+                    </div>
+                </div>
+                
+                <div class="floating-hearts" id="apology-hearts"></div>
+            </div>
+            
+            <div class="screen memories-screen" id="memories-screen" style="display: none;">
+                <h2 class="memories-title">我们的甜蜜回忆</h2>
+                
+                <div class="photo-grid">
+                    <!-- 照片1 -->
+                    <div class="photo-item" onclick="openModal('photo1', '第一次收到花 - 2024年夏')">
+                        <img src="D:\HTML\images\photo1.jpg.jpg" 
+                             alt="第一次收到花" class="photo-img">
+                        <div class="photo-caption">第一次收到花 - 2024年夏6月12</div>
+                    </div>
+                    
+                    <!-- 照片2 -->
+                    <div class="photo-item" onclick="openModal('photo2', '回家 - 2024年4月')">
+                        <img src="D:\HTML\images\photo2.jpg.jpg"
+                        alt="回家" class="photo-img">
+                        <div class="photo-caption">回家 - 2024年4月13</div>
+                    </div>
+                    
+                    <!-- 照片3 -->
+                    <div class="photo-item" onclick="openModal('photo3', '琪♥ - 2024年2月')">
+                        <img src="D:\HTML\images\photo3.jpg.jpg"
+                        alt="琪♥" class="photo-img">
+                        <div class="photo-caption">琪♥ - 2024年2月19</div>
+                    </div>
+                    
+                    <!-- 照片4 -->
+                    <div class="photo-item" onclick="openModal('photo4', '吻 - 2024年12月')">
+                        <img src="D:\HTML\images\photo4.jpg.jpg"
+                             alt="吻" class="photo-img">
+                        <div class="photo-caption">吻 - 2024年12月19</div>
+                    </div>
+                    
+                    <!-- 照片5 -->
+                    <div class="photo-item" onclick="openModal('photo5', '第一次见面 - 2024年1月')">
+                        <img src="D:\HTML\images\photo5.jgp.jpg" 
+                             alt="第一次见面" class="photo-img">
+                        <div class="photo-caption">第一次见面 - 2024年1月20</div>
+                    </div>
+                    
+                    <!-- 照片6 -->
+                    <div class="photo-item" onclick="openModal('photo6', '上学 - 2024年5月')">
+                        <img src="D:\HTML\images\photo6.jpg" 
+                             alt="上学" class="photo-img">
+                        <div class="photo-caption">上学 - 2024年5月</div>
+                    </div>
+                </div>
+                
+                <div class="memory-text">
+                    <p>"每一张照片都是我们美好回忆的见证，感谢你让我的生活如此精彩"</p>
+                </div>
+                
+                <div class="floating-hearts" id="memories-hearts"></div>
+            </div>
+            
+            <div class="screen promises-screen" id="promises-screen" style="display: none;">
+                <h2 class="promises-title">我对你的承诺</h2>
+                
+                <div class="promise-list">
+                    <div class="promise-item">
+                        <div class="promise-number">1</div>
+                        <div class="promise-text">每天至少说三次"我爱你"</div>
+                    </div>
+                    <div class="promise-item">
+                        <div class="promise-number">2</div>
+                        <div class="promise-text">一直陪伴你照顾你至死不渝</div>
+                    </div>
+                    <div class="promise-item">
+                        <div class="promise-number">3</div>
+                        <div class="promise-text">永远把你的感受放在第一位</div>
+                    </div>
+                    <div class="promise-item">
+                        <div class="promise-number">4</div>
+                        <div class="promise-text">耐心倾听你的每一句话</div>
+                    </div>
+                    <div class="promise-item">
+                        <div class="promise-number">5</div>
+                        <div class="promise-text">尊重你的每一个决定</div>
+                    </div>
+                    <div class="promise-item">
+                        <div class="promise-number">6</div>
+                        <div class="promise-text">在你需要时第一时间出现</div>
+                    </div>
+                    <div class="promise-item">
+                        <div class="promise-number">7</div>
+                        <div class="promise-text">支持你追求自己的梦想</div>
+                    </div>
+                    <div class="promise-item">
+                        <div class="promise-number">8</div>
+                        <div class="promise-text">一起规划我们的未来</div>
+                    </div>
+                </div>
+                
+                <div class="promise-footer">
+                    我会用一生履行这些承诺！
+                </div>
+                
+                <div class="floating-hearts" id="promises-hearts"></div>
+            </div>
+            
+                    </ol>
+                    
+                    </ul>
+                    
+                    <h3>照片查看功能</h3>
+                    <p>点击任何照片可以放大查看，右上角的×按钮可以关闭查看器</p>
+                </div>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <button class="action-btn" onclick="switchTab('memories')">前往照片页面</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 照片查看器模态框 -->
+    <div class="modal" id="photo-modal">
+        <div class="close-modal" onclick="closeModal()">&times;</div>
+        <div class="modal-content">
+            <img id="modal-image" class="modal-img" src="" alt="">
+            <div id="modal-caption" class="modal-caption"></div>
+        </div>
+    </div>
+
+    <script>
+        // 获取当前日期
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = now.toLocaleDateString('zh-CN', options);
+        
+        // 创建漂浮的心形
+        function createHearts(containerId, count) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            for (let i = 0; i < count; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.innerHTML = '❤';
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.top = `${Math.random() * 100}%`;
+                heart.style.animationDelay = `${Math.random() * 5}s`;
+                heart.style.fontSize = `${1 + Math.random() * 1.5}rem`;
+                container.appendChild(heart);
+            }
+        }
+        
+        // Tab切换功能
+        function switchTab(tabName) {
+            // 更新活动标签
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+            
+            // 隐藏所有屏幕
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.style.display = 'none';
+            });
+            
+            // 显示选中的屏幕
+            document.getElementById(`${tabName}-screen`).style.display = 'block';
+            
+            // 为当前页面创建漂浮心形
+            if(tabName !== 'instructions') {
+                createHearts(`${tabName}-hearts`, 15);
+            }
+        }
+        
+        // 添加标签点击事件
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabName = tab.getAttribute('data-tab');
+                switchTab(tabName);
+            });
+        });
+        
+        // 首页按钮功能
+        document.querySelector('.action-btn').addEventListener('click', () => {
+            switchTab('apology');
+        });
+        
+        // 照片查看器功能
+        function openModal(imgRef, caption) {
+            const modal = document.getElementById('photo-modal');
+            const modalImg = document.getElementById('modal-image');
+            const modalCaption = document.getElementById('modal-caption');
+            
+            // 设置照片和描述
+            modalImg.src = document.querySelector(`[onclick*="${imgRef}"] img`).src;
+            modalCaption.textContent = caption;
+            
+            // 显示模态框
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            document.getElementById('photo-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // 点击模态框背景关闭
+        window.addEventListener('click', (event) => {
+            const modal = document.getElementById('photo-modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // 初始化首页
+        window.onload = function() {
+            createHearts('home-hearts', 15);
+            switchTab('home');
+        };
+    </script>
+</body>
+</html>
